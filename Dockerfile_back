@@ -1,0 +1,8 @@
+FROM maven
+
+COPY ./backend /home/app
+WORKDIR /home/app
+RUN mvn clean package -DskipTests
+RUN mvn compile
+
+CMD ["java","-jar","target/studentsystem-0.0.1-SNAPSHOT.jar"]
